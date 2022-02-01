@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class Kekambas extends Component {
     constructor(props){
+        console.log('Constructed')
         super(props);
         this.state = {
             kekambas: []
@@ -32,6 +33,7 @@ export default class Kekambas extends Component {
     }
 
     render() {
+        console.log('Rendered')
         return (
             <div>
                 <h1>Kekambas Section!</h1>
