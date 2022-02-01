@@ -9,7 +9,7 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            name: '',
+            name: 'Brian',
             count: 0
         }
     }
@@ -21,10 +21,16 @@ export default class App extends Component {
         })
     }
 
-    componentDidMount(){
-        let userName = prompt('What is your name?');
+    // componentDidMount(){
+    //     let userName = prompt('What is your name?');
+    //     this.setState({
+    //         name: userName
+    //     })
+    // }
+
+    changeName = (newName) => {
         this.setState({
-            name: userName
+            name: newName
         })
     }
 
@@ -35,7 +41,7 @@ export default class App extends Component {
                 <Navbar />
                 <div className='container'>
                     <Routes>
-                        <Route path="/" element={<Home name={this.state.name} incrementTotalCount={this.incrementTotalCount} count={this.state.count} />} />
+                        <Route path="/" element={<Home name={this.state.name} incrementTotalCount={this.incrementTotalCount} count={this.state.count} changeName={this.changeName} />} />
                         <Route path="racers" element={<RacerList />} />
                         <Route path="kekambas" element={<Kekambas />} />
                     </Routes>
