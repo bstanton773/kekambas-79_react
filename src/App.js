@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './components/Button';
+import Kekambas from './components/Kekambas';
 import Navbar from './components/Navbar';
 import RacerList from './components/RacerList';
 
@@ -12,8 +13,6 @@ export default class App extends Component {
     }
 
     incrementTotalCount = (step) => {
-        console.log('The button has been clicked, friend')
-        console.log(step)
         const newCount = this.state.count + step
         this.setState({
             count: newCount
@@ -33,6 +32,7 @@ export default class App extends Component {
                     <Button step={10} handleClick={this.incrementTotalCount}/>
                     <Button step={100} handleClick={this.incrementTotalCount}/>
                     <RacerList />
+                    <Kekambas />
                 </div>
             </>
         );

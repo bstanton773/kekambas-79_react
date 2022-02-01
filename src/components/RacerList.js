@@ -3,7 +3,6 @@ import RacerRow from './RacerRow';
 
 export default class RacerList extends Component {
     constructor(props){
-        console.log('Component Constructed')
         super(props);
         this.state = {
             racers: []
@@ -11,7 +10,6 @@ export default class RacerList extends Component {
     }
 
     componentDidMount(){
-        console.log('Component Mounted')
         fetch('https://ergast.com/api/f1/2008/5/driverStandings.json')
             .then(res => res.json())
             .then(data => {
@@ -23,7 +21,6 @@ export default class RacerList extends Component {
     }
 
     render() {
-        console.log('Component Rendered')
         return (
             <>
                 <h1>This is the racer list!</h1>
