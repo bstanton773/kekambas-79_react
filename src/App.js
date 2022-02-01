@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Button from './components/Button';
+import Navbar from './components/Navbar';
+import RacerList from './components/RacerList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            count: 0
+        }
+    }
+
+    incrementTotalCount = (step) => {
+        console.log('The button has been clicked, friend')
+        console.log(step)
+        const newCount = this.state.count + step
+        this.setState({
+            count: newCount
+        })
+    }
+
+    render() {
+        const name = 'Brian'
+        return (
+            <>
+                <Navbar />
+                <div className='container'>
+                    <h1>Hello {name}</h1>
+                    <h4>{this.state.count}</h4>
+                    <Button step={1} handleClick={this.incrementTotalCount}/>
+                    <Button step={5} handleClick={this.incrementTotalCount}/>
+                    <Button step={10} handleClick={this.incrementTotalCount}/>
+                    <Button step={100} handleClick={this.incrementTotalCount}/>
+                    <RacerList />
+                </div>
+            </>
+        );
+    }
 }
-
-export default App;
