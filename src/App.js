@@ -1,38 +1,24 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
-import Kekambas from './components/Kekambas';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import RacerList from './components/RacerList';
+import Home from './views/Home';
+import Kekambas from './views/Kekambas';
+import RacerList from './views/RacerList';
 
 export default class App extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            count: 0
-        }
-    }
 
-    incrementTotalCount = (step) => {
-        const newCount = this.state.count + step
-        this.setState({
-            count: newCount
-        })
-    }
 
     render() {
-        const name = 'Brian'
         return (
             <>
                 <Navbar />
                 <div className='container'>
-                    <h1>Hello {name}</h1>
-                    <h4>{this.state.count}</h4>
-                    <Button step={1} handleClick={this.incrementTotalCount}/>
-                    <Button step={5} handleClick={this.incrementTotalCount}/>
-                    <Button step={10} handleClick={this.incrementTotalCount}/>
-                    <Button step={100} handleClick={this.incrementTotalCount}/>
-                    <RacerList />
-                    <Kekambas />
+                    <Routes>
+                        <Route path="/" element={<Home name={'Brian'} />} />
+                        <Route path="racers" element={<RacerList />} />
+                        <Route path="kekambas" element={<Kekambas />} />
+                    </Routes>
+                    
                 </div>
             </>
         );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RacerRow from './RacerRow';
+import RacerRow from '../components/RacerRow';
 
 export default class RacerList extends Component {
     constructor(props){
