@@ -17,7 +17,7 @@ export default function ButtonNameChange(props){
             </div>
             <input type="submit" className={`btn btn-${buttonColor}`} />
         </form>
-        <button className="btn btn-primary" onClick={() => {setButtonColor(buttonColor == 'secondary' ? 'warning' : 'secondary')}}>Change Above Button Color</button>
+        <button className="btn btn-primary" onClick={() => {setButtonColor(buttonColor === 'secondary' ? 'warning' : 'secondary')}}>Change Above Button Color</button>
         </>
     )
 }

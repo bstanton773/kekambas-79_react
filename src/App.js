@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './views/Home';
 import Kekambas from './views/Kekambas';
+import PostList from './views/PostList';
 import RacerList from './views/RacerList';
 
 export default class App extends Component {
@@ -44,6 +45,7 @@ export default class App extends Component {
                         <Route path="/" element={<Home name={this.state.name} incrementTotalCount={this.incrementTotalCount} count={this.state.count} changeName={this.changeName} />} />
                         <Route path="racers" element={<RacerList />} />
                         <Route path="kekambas" element={<Kekambas />} />
+                        <Route path="posts" element={<PostList /> } />
                     </Routes>
                     
                 </div>
