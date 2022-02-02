@@ -17,7 +17,6 @@ export default class Button extends Component {
     // }
 
     render() {
-        console.log(this.props)
         return (
             <button onClick={() => this.props.handleClick(this.props.step)} className='btn btn-primary'>+{this.props.step}</button>
         );

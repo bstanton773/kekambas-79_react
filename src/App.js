@@ -1,38 +1,51 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import RacerList from './components/RacerList';
+import Home from './views/Home';
+import Kekambas from './views/Kekambas';
+import RacerList from './views/RacerList';
 
 export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
+            name: 'Brian',
             count: 0
         }
     }
 
     incrementTotalCount = (step) => {
-        console.log('The button has been clicked, friend')
-        console.log(step)
         const newCount = this.state.count + step
         this.setState({
             count: newCount
         })
     }
 
+    // componentDidMount(){
+    //     let userName = prompt('What is your name?');
+    //     this.setState({
+    //         name: userName
+    //     })
+    // }
+
+    changeName = (newName) => {
+        this.setState({
+            name: newName
+        })
+    }
+
+
     render() {
-        const name = 'Brian'
         return (
             <>
                 <Navbar />
                 <div className='container'>
-                    <h1>Hello {name}</h1>
-                    <h4>{this.state.count}</h4>
-                    <Button step={1} handleClick={this.incrementTotalCount}/>
-                    <Button step={5} handleClick={this.incrementTotalCount}/>
-                    <Button step={10} handleClick={this.incrementTotalCount}/>
-                    <Button step={100} handleClick={this.incrementTotalCount}/>
-                    <RacerList />
+                    <Routes>
+                        <Route path="/" element={<Home name={this.state.name} incrementTotalCount={this.incrementTotalCount} count={this.state.count} changeName={this.changeName} />} />
+                        <Route path="racers" element={<RacerList />} />
+                        <Route path="kekambas" element={<Kekambas />} />
+                    </Routes>
+                    
                 </div>
             </>
         );
