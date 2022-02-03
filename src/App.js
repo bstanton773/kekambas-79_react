@@ -6,6 +6,7 @@ import Home from './views/Home';
 import Kekambas from './views/Kekambas';
 import Login from './views/Login';
 import PostList from './views/PostList';
+import Products from './views/Products';
 import RacerList from './views/RacerList';
 import Register from './views/Register';
 
@@ -75,6 +76,7 @@ export default class App extends Component {
                         <Route path="posts" element={<PostList /> } />
                         <Route path="register" element={<Register flashMessage={this.flashMessage} /> } />
                         <Route path="login" element={<Login flashMessage={this.flashMessage} logUserIn={this.logIn}/> } />
+                        <Route path="products" element={<Products />} />
                     </Routes>
                     
                 </div>
