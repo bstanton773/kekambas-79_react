@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import AlertMessage from './components/AlertMessage';
 import Navbar from './components/Navbar';
+import ProductUpdate from './components/ProductUpdate';
 import Home from './views/Home';
 import Kekambas from './views/Kekambas';
 import Login from './views/Login';
@@ -77,6 +78,7 @@ export default class App extends Component {
                         <Route path="register" element={<Register flashMessage={this.flashMessage} /> } />
                         <Route path="login" element={<Login flashMessage={this.flashMessage} logUserIn={this.logIn}/> } />
                         <Route path="products" element={<Products />} />
+                        <Route path="products/:prodId" element={<ProductUpdate />} />
                     </Routes>
                     
                 </div>
