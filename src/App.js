@@ -4,6 +4,7 @@ import AlertMessage from './components/AlertMessage';
 import Navbar from './components/Navbar';
 import Home from './views/Home';
 import Kekambas from './views/Kekambas';
+import Login from './views/Login';
 import PostList from './views/PostList';
 import RacerList from './views/RacerList';
 import Register from './views/Register';
@@ -58,6 +59,7 @@ export default class App extends Component {
                         <Route path="kekambas" element={<Kekambas />} />
                         <Route path="posts" element={<PostList /> } />
                         <Route path="register" element={<Register flashMessage={this.flashMessage} /> } />
+                        <Route path="login" element={<Login flashMessage={this.flashMessage} /> } />
                     </Routes>
                     
                 </div>
