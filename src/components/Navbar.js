@@ -38,7 +38,7 @@ export default class Navbar extends Component {
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             {this.props.loggedIn ? (
                             <>
-                                <li><a className="dropdown-item" href="/">Logout</a></li>
+                                <li><Link className="dropdown-item" to="/" onClick={this.props.logUserOut}>Logout</Link></li>
                             </>
                             ) : (
                             <>
