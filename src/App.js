@@ -78,7 +78,7 @@ export default class App extends Component {
                         <Route path="register" element={<Register flashMessage={this.flashMessage} /> } />
                         <Route path="login" element={<Login flashMessage={this.flashMessage} logUserIn={this.logIn}/> } />
                         <Route path="products" element={<Products />} />
-                        <Route path="products/:prodId" element={<ProductUpdate />} />
+                        <Route path="products/:prodId" element={<ProductUpdate token={this.state.loggedIn} flashMessage={this.flashMessage}/>} />
                     </Routes>
                     
                 </div>
