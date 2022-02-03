@@ -14,7 +14,7 @@ export default function Register(props){
         let password = e.target.password.value;
         let confirmPass = e.target.confirmPass.value;
         if (password !== confirmPass){
-            console.log('The passwords are not the same')
+            props.flashMessage('The passwords are not the same', 'danger')
             navigate('/register')
         } else {
 
@@ -35,6 +35,7 @@ export default function Register(props){
             }).then(res => res.json())
                 .then(data => {
                     console.log(data)
+                    props.flashMessage('Thank you for registering', 'success')
                     navigate('/')
                 })
         }
