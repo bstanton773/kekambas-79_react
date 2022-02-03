@@ -5,6 +5,7 @@ import Home from './views/Home';
 import Kekambas from './views/Kekambas';
 import PostList from './views/PostList';
 import RacerList from './views/RacerList';
+import Register from './views/Register';
 
 export default class App extends Component {
     constructor(props){
@@ -46,6 +47,7 @@ export default class App extends Component {
                         <Route path="racers" element={<RacerList />} />
                         <Route path="kekambas" element={<Kekambas />} />
                         <Route path="posts" element={<PostList /> } />
+                        <Route path="register" element={<Register /> } />
                     </Routes>
                     
                 </div>
