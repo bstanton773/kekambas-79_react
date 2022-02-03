@@ -16,7 +16,8 @@ export default class App extends Component {
             name: 'Brian',
             count: 0,
             message: null,
-            category: null
+            category: null,
+            loggedIn: localStorage.getItem('token')
         }
     }
 
@@ -46,11 +47,17 @@ export default class App extends Component {
         })
     }
 
+    logIn = (token) => {
+        this.setState({
+            loggedIn: token
+        })
+    }
+
 
     render() {
         return (
             <>
-                <Navbar />
+                <Navbar loggedIn={this.state.loggedIn}/>
                 <div className='container'>
                     {this.state.message ? <AlertMessage message={this.state.message} category={this.state.category} flashMessage={this.flashMessage} /> : null}
                     <Routes>
@@ -59,7 +66,7 @@ export default class App extends Component {
                         <Route path="kekambas" element={<Kekambas />} />
                         <Route path="posts" element={<PostList /> } />
                         <Route path="register" element={<Register flashMessage={this.flashMessage} /> } />
-                        <Route path="login" element={<Login flashMessage={this.flashMessage} /> } />
+                        <Route path="login" element={<Login flashMessage={this.flashMessage} logUserIn={this.logIn}/> } />
                     </Routes>
                     
                 </div>

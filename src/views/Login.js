@@ -26,6 +26,7 @@ export default class Login extends Component {
         let token = await data.token
         localStorage.setItem('token', token)
         this.props.flashMessage('You have successfully logged in.', 'success')
+        this.props.logUserIn(token)
         this.setState({
             redirect: '/'
         })
