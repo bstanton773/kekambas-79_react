@@ -9,7 +9,7 @@ export default function ProductUpdate(props) {
         fetch(`http://localhost:5000/api/products/${prodId}`)
             .then(res => res.json())
             .then(data => setProd(data))
-    }, [])
+    }, [prodId])
 
     const handleDelete = () => {
         let myHeaders = new Headers();
