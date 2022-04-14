@@ -15,31 +15,43 @@ export default class Navbar extends Component {
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
+                        {this.props.loggedIn ? (
+                            <>
+                            <li className="nav-item">
                             <Link className="nav-link" to="/racers">Racers</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/kekambas">Kekambas</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/posts">Posts</Link>
-                        </li>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/kekambas">Kekambas</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/posts">Posts</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/products">Products</Link>
+                            </li>
+                            </>
+                        ) : null}
+                        
+                    </ul>
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
                         </a>
-                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/">Action</a></li>
-                            <li><a className="dropdown-item" href="/">Another action</a></li>
-                            <li><hr className="dropdown-divider"></hr></li>
-                            <li><a className="dropdown-item" href="/">Something else here</a></li>
+                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            {this.props.loggedIn ? (
+                            <>
+                                <li><Link className="dropdown-item" to="/" onClick={this.props.logUserOut}>Logout</Link></li>
+                            </>
+                            ) : (
+                            <>
+                            <li><Link className="dropdown-item" to="/login">Login</Link></li>
+                            <li><Link className="dropdown-item" to="/register">Register</Link></li>
+                            </>
+                            )}
                         </ul>
                         </li>
                     </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                     </div>
                 </div>
             </nav>
